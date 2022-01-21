@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeaderLink from "../components/HeaderLink";
+import ExploreIcon from "@mui/icons-material/Explore";
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
           {/* contains links */}
           <div className="hidden sm:flex space-x-8 pr-4">
             {/* <HeaderLink /> */}
-            <HeaderLink />
+            <HeaderLink Icon={ExploreIcon} text="Discover" />
             <HeaderLink />
             <HeaderLink />
             <HeaderLink />
