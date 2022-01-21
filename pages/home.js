@@ -34,11 +34,30 @@ function Home() {
         </div>
       </header>
 
+      {/* When using max width, use mx-auto or else it wont be aligned in the center */}
       <main className="flex flex-col xl:flex-row items-center max-w-screen-lg mx-auto">
         <div className="space-y-6 xl:space-y-10">
           {/* Intro
-           */}
-          <h1>Welcome to your professional community</h1>
+           * snug - increases line height*/}
+          <h1 className="text-3xl md:text-5xl text-[#7c5142] max-w-xl !leading-snug pl-4 xl:pl-0">
+            Welcome to your professional community
+          </h1>
+
+          {/* 3 links */}
+          <div className="space-y-4">
+            <div className="intent">
+              <h2 className="text-xl">Search for a job</h2>
+              <ArrowForwardIosRoundedIcon className="text-gray-700" />
+            </div>
+            <div className="intent">
+              <h2 className="text-xl">Find a person you know</h2>
+              <ArrowForwardIosRoundedIcon className="text-gray-700" />
+            </div>
+            <div className="intent">
+              <h2 className="text-xl">Learn a new skill</h2>
+              <ArrowForwardIosRoundedIcon className="text-gray-700" />
+            </div>
+          </div>
         </div>
       </main>
     </div>
