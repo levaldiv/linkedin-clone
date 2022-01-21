@@ -59,6 +59,11 @@ function Home() {
             </div>
           </div>
         </div>
+
+        {/* Right section, image */}
+        <div className="relative xl:absolute">
+          <Image src="https://rb.gy/vkzpzt" layout="fill" priority />
+        </div>
       </main>
     </div>
   );
