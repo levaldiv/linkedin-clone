@@ -27,12 +27,20 @@ function Home() {
 
           {/* Signin button */}
           <div className="pl-4">
-          <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2">
-            Sign in
-          </button>
+            <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2">
+              Sign in
+            </button>
           </div>
         </div>
       </header>
+
+      <main className="flex flex-col xl:flex-row items-center max-w-screen-lg mx-auto">
+        <div className="space-y-6 xl:space-y-10">
+          {/* Intro
+           */}
+          <h1>Welcome to your professional community</h1>
+        </div>
+      </main>
     </div>
   );
 }
