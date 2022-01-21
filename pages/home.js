@@ -39,7 +39,7 @@ function Home() {
         <div className="space-y-6 xl:space-y-10">
           {/* Intro
            * snug - increases line height*/}
-          <h1 className="text-3xl md:text-5xl text-[#7c5142] max-w-xl !leading-snug pl-4 xl:pl-0">
+          <h1 className="text-3xl md:text-5xl text-amber-800/80 max-w-xl !leading-snug pl-4 xl:pl-0">
             Welcome to your professional community
           </h1>
 
