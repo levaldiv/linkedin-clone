@@ -8,7 +8,7 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 
 function Home() {
   return (
-    <div>
+    <div className="space-y-10 relative">
       <header className="flex justify-around items-center py-4">
         {/* Left Section */}
         <div className="relative w-36 h-10">
