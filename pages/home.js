@@ -17,7 +17,6 @@ function Home() {
 
         {/* Right section (icons) */}
         <div className="flex items-center sm:divide-x divide-gray-300">
-          {/* contains links */}
           <div className="hidden sm:flex space-x-8 pr-4">
             {/* <HeaderLink /> */}
             <HeaderLink Icon={ExploreIcon} text="Discover" />
@@ -25,6 +24,11 @@ function Home() {
             <HeaderLink Icon={OndemandVideoSharpIcon} text="Learning" />
             <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
           </div>
+
+          {/* Signin button */}
+          <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2">
+            Sign in
+          </button>
         </div>
       </header>
     </div>
