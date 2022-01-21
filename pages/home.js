@@ -1,6 +1,10 @@
 import Image from "next/image";
 import HeaderLink from "../components/HeaderLink";
 import ExploreIcon from "@mui/icons-material/Explore";
+import GroupIcon from "@mui/icons-material/Group";
+import OndemandVideoSharpIcon from "@mui/icons-material/OndemandVideoSharp";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 
 function Home() {
   return (
@@ -17,9 +21,9 @@ function Home() {
           <div className="hidden sm:flex space-x-8 pr-4">
             {/* <HeaderLink /> */}
             <HeaderLink Icon={ExploreIcon} text="Discover" />
-            <HeaderLink />
-            <HeaderLink />
-            <HeaderLink />
+            <HeaderLink Icon={GroupIcon} text="People" />
+            <HeaderLink Icon={OndemandVideoSharpIcon} text="Learning" />
+            <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
           </div>
         </div>
       </header>
