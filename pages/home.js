@@ -61,7 +61,7 @@ function Home() {
         </div>
 
         {/* Right section, image */}
-        <div className="relative xl:absolute">
+        <div className="relative xl:absolute w-80 h-80 xl:w-[650px] xl:h-[650px] top-14 right-5">
           <Image src="https://rb.gy/vkzpzt" layout="fill" priority />
         </div>
       </main>
