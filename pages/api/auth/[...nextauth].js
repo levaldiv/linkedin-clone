@@ -14,4 +14,9 @@ export default NextAuth({
   ],
   secret: process.env.JWT_SECRET,
   adapter: MongoDBAdapter(clientPromise),
+
+  // specifices URLs to be used to create a custom login sign in
+  pages: {
+    signIn: "/home",
+  },
 });
