@@ -16,7 +16,14 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
 
   // specifices URLs to be used to create a custom login sign in
+  // technically this would be the login page instead of home
   pages: {
     signIn: "/home",
+  },
+
+  // the way it stores the users session
+  // using jwt encryps the session cookie
+  session: {
+    strategy: "jwt",
   },
 });
