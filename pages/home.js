@@ -33,12 +33,25 @@ function Home({ providers }) {
             <HeaderLink Icon={BusinessCenterIcon} text="Jobs" />
           </div>
 
-          {/* Signin button */}
-          <div className="pl-4">
-            <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2">
-              Sign in
-            </button>
-          </div>
+          {/* only interested in providers, hence i only use providers
+           * a way to map through the objects to be converted into arrays so i can map through them
+           * [If it was just an array, i can use "providers.map" but in this case, it will error out
+           * since its not an array buts its instead an object] */}
+          {Object.values(providers).map((provider) => (
+            // sending in a key
+            <div key={provider.name}>
+              {/* Signin button */}
+              <div className="pl-4">
+                <button
+                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1.5 transition-all hover:border-2"
+                  // using the signIn fcn and send in the provider.id
+                  onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+                >
+                  Sign in
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </header>
 
