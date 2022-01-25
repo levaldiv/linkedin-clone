@@ -5,16 +5,18 @@ import GroupIcon from "@mui/icons-material/Group";
 import OndemandVideoSharpIcon from "@mui/icons-material/OndemandVideoSharp";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import { getProviders, signIn } from "next-auth/react";
 import Head from "next/head";
 
-function Home() {
+function Home({ providers }) {
+  // console.log(providers);
   return (
     <div className="space-y-10 relative">
       <Head>
         <title>LinkedIn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <header className="flex justify-around items-center py-4">
         {/* Left Section */}
         <div className="relative w-36 h-10">
@@ -76,3 +78,14 @@ function Home() {
 }
 
 export default Home;
+
+/* calls /api/auth/providers and returns a list of the currently configured authentication providers from the nextauth file */
+export async function getServerSideProps(context) {
+  const providers = await getProviders();
+
+  return {
+    props: {
+      providers,
+    },
+  };
+}
