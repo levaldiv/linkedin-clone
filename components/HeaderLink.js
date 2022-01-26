@@ -14,6 +14,7 @@ function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
       {avatar ? <Icon className="!h-7 !w-7 lg:!-mb-1" /> : <Icon />}
       <h4
         className={`text-sm ${
+          // if feed is true, text is hidden on smaller devices
           feed && "hidden lg:flex justify-center w-full mx-auto"
         }`}
       >
