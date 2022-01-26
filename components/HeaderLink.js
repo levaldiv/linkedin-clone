@@ -20,6 +20,11 @@ function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
       >
         {text}
       </h4>
+
+      {/* this creates the horizontal line underneath the home icon when active is true*/}
+      {active && (
+        <span className="hidden lg:inline-flex h-0.5 w-[calc(100%+20px)] bg-black dark:bg-white rounded-t-full" />
+      )}
     </div>
   );
 }
