@@ -28,7 +28,7 @@ function Header() {
         </div>
       </div>
 
-      {/* Right side */}
+      {/* Right side icons*/}
       <div className="flex items-center space-x-6">
         <HeaderLink Icon={HomeRoundedIcon} text="Home" feed active />
         <HeaderLink Icon={GroupIcon} text="My Network" feed />
@@ -37,6 +37,17 @@ function Header() {
         <HeaderLink Icon={NotificationsIcon} text="Notifications" feed />
         <HeaderLink Icon={Avatar} text="Me" feed avatar hidden />
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
+
+        {/* Dark mode toggle
+         *flex shrink prevents the togle from shrinking when re sizing the windows*/}
+
+        <div
+          className={`bg-gray-600 flex items-center px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative`}
+        >
+          <span className="absolute left-0">🌜</span>
+          {/* framer motion.div */}
+          <span className="absolute right-0.5">🌞</span>
+        </div>
       </div>
     </header>
   );
