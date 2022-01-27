@@ -79,6 +79,10 @@ function Header() {
               // this will make only the toggle move (the spans are going to stay in their position)
               resolvedTheme === "dark" ? "justify-end" : "justify-start"
             }`}
+            // toggles bw light and dark
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
           >
             <span className="absolute left-0">🌜</span>
             {/* framer motion.div */}
