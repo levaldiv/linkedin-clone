@@ -26,6 +26,7 @@ function Header() {
     <header>
       {/* Left */}
       <div className="flex items-center space-x-2 w-full max-w-xs">
+        
         {mounted && (
           <>
             {resolvedTheme === "dark" ? (
