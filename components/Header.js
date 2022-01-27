@@ -79,6 +79,7 @@ function Header() {
           <motion.div
             className="w-5 h-5 bg-white rounded-full z-40"
             layout
+            // passing spring as a prop
             transition={spring}
           />
           <span className="absolute right-0.5">🌞</span>
