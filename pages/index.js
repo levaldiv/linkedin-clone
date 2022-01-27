@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>LinkedIn</title>
+        <title>Feed | LinkedIn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
