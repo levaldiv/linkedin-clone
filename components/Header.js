@@ -8,13 +8,33 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import { Avatar } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 function Header() {
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme, theme } = useTheme();
+
+  /* After mounting, we have access to the theme
+   * Sets setMounted to true everytime the component loads
+   * This creates a slight delay to prevent the blue logo from appearing before the dark logo when refreshed
+   * and in dark mode
+   * So the delay allows it to mount first and then change to dark mode */
+  useEffect(() => setMounted(true), []);
+
   return (
     <header>
       {/* Left */}
       <div className="flex items-center space-x-2 w-full max-w-xs">
-        <Image src="https://rb.gy/bizvqj" width={45} height={45} />
+        {mounted && (
+          <>
+            {resolvedTheme === "dark" ? (
+              <Image src="https://rb.gy/bizvqj" width={45} height={45} />
+            ) : (
+              <Image src="https://rb.gy/dpmd9s" width={55} height={55} />
+            )}
+          </>
+        )}
 
         {/* Searchbar / icon / input field */}
         <div className="flex items-center space-x-1 dark:md:bg-gray-700 py-2.5 px-4 rounded w-full">
