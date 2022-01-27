@@ -29,6 +29,7 @@ function Header() {
    * and in dark mode
    * So the delay allows it to mount first and then change to dark mode */
   useEffect(() => setMounted(true), []);
+  console.log("Current theme is", theme);
 
   return (
     /* when working with position fixed/sticky on headers, need to specify top val
