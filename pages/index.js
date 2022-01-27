@@ -9,6 +9,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+
+      {/* Only use space when using in one direction, gap for horizontal and vertical */}
+      <main className="flex justify-center gap-x-5 px-4 sm:px-12">
+        <div className="flex flex-col md:flex-row gap-5">
+          {/* Sidebar */}
+          {/* Feed */}
+        </div>
+        {/* Widgets */}
+      </main>
     </div>
   );
 }
