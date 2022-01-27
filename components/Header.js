@@ -71,20 +71,26 @@ function Header() {
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
 
         {/* Dark mode toggle
-         *flex shrink prevents the togle from shrinking when re sizing the windows*/}
-        <div
-          className={`bg-gray-600 flex items-center px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative`}
-        >
-          <span className="absolute left-0">🌜</span>
-          {/* framer motion.div */}
-          <motion.div
-            className="w-5 h-5 bg-white rounded-full z-40"
-            layout
-            // passing spring as a prop
-            transition={spring}
-          />
-          <span className="absolute right-0.5">🌞</span>
-        </div>
+         *flex shrink prevents the togle from shrinking when re sizing the windows
+         * This will only show IF  mounted is true*/}
+        {mounted && (
+          <div
+            className={`bg-gray-600 flex items-center px-0.5 rounded-full h-6 w-12 cursor-pointer flex-shrink-0 relative ${
+              // this will make only the toggle move (the spans are going to stay in their position)
+              resolvedTheme === "dark" ? "justify-end" : "justify-start"
+            }`}
+          >
+            <span className="absolute left-0">🌜</span>
+            {/* framer motion.div */}
+            <motion.div
+              className="w-5 h-5 bg-white rounded-full z-40"
+              layout
+              // passing spring as a prop
+              transition={spring}
+            />
+            <span className="absolute right-0.5">🌞</span>
+          </div>
+        )}
       </div>
     </header>
   );
