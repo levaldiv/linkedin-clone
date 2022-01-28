@@ -1,9 +1,14 @@
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 export default function Home() {
+  // renaming data to session
+  // this React hook checks to see if someone is signed in
+  const { data: session } = useSession();
+  console.log(session);
+
   return (
     <div className="bg-[#F3F2EF] dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6">
       <Head>
