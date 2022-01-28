@@ -6,7 +6,6 @@ function Sidebar() {
   return (
     // prevents the sidebar from shrinking
     <div className="space-y-2 min-w-max max-w-lg">
-     
       {/* About you (left side) */}
       <div className="bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none">
         <div className="relative w-full h-14">
@@ -21,15 +20,22 @@ function Sidebar() {
           <h4 className="hover:underline decoration-purple-700 underline-offset-1 cursor-pointer">
             Luis Valdivia
           </h4>
-          <p className="text-black/60 dark:text-white/75 text-sm">Thisismyemail@gmail.com</p>
+          <p className="text-black/60 dark:text-white/75 text-sm">
+            Thisismyemail@gmail.com
+          </p>
         </div>
 
         <div className="hidden md:inline text-left dark:text-white/75 text-sm">
-            <div className="font-medium sidebarButton space-y-0.5">
-                <div className="flex justify-between space-x-2">
-
-                </div>
+          <div className="font-medium sidebarButton space-y-0.5">
+            <div className="flex justify-between space-x-2">
+              <h4>Who viewed your profile</h4>
+              <span className="text-blue-500">321</span>
             </div>
+            <div className="flex justify-between space-x-2">
+              <h4>Views of your post</h4>
+              <span className="text-blue-500">1,892</span>
+            </div>
+          </div>
         </div>
       </div>
       {/* Bottom */}
