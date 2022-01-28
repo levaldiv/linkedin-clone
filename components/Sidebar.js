@@ -26,7 +26,9 @@ function Sidebar() {
 
         <div className="hidden md:inline text-left dark:text-white/75 text-sm">
             <div className="font-medium sidebarButton space-y-0.5">
+                <div className="flex justify-between space-x-2">
 
+                </div>
             </div>
         </div>
       </div>
