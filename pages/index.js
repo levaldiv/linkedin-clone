@@ -1,13 +1,23 @@
 import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   // renaming data to session
   // this React hook checks to see if someone is signed in
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   // console.log(session);
+  /* This only happens when the user is not authenticated on the client side */
+  const router = useRouter();
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      // If the user is unauth, handle it here
+      router.push("/home");
+    },
+  });
 
   return (
     <div className="bg-[#F3F2EF] dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6">
@@ -32,6 +42,7 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
   //checks if the user is auth on the server
+  /* This only happens when user is not auth'd on the server side */
   const session = await getSession(context);
   if (!session) {
     return {
