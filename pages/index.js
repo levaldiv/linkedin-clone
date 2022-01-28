@@ -7,7 +7,7 @@ export default function Home() {
   // renaming data to session
   // this React hook checks to see if someone is signed in
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
 
   return (
     <div className="bg-[#F3F2EF] dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6">
