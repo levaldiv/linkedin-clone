@@ -32,21 +32,22 @@ function Input() {
 
       {/* Bottom / icons */}
       <div className="flex items-center flex-wrap gap-4 justify-center md:gap-x-10">
+        {/* group styles the targeted elmt */}
         <button className="inputButton group">
           <PhotoSizeSelectActualIcon className="text-blue-400" />
           <h4 className="opacity-80 group-hover:opacity-100">Photo</h4>
         </button>
-        
+
         <button className="inputButton group">
           <VideoCameraBackIcon className="text-green-400" />
           <h4 className="opacity-80 group-hover:opacity-100">Video</h4>
         </button>
-        
+
         <button className="inputButton group">
           <BusinessCenterIcon className="text-blue-300" />
           <h4 className="opacity-80 group-hover:opacity-100">Job</h4>
         </button>
-        
+
         <button className="inputButton group">
           <ArticleIcon className="text-red-400" />
           <h4 className="opacity-80 group-hover:opacity-100 whitespace-nowrap">
