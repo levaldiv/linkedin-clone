@@ -16,7 +16,7 @@ function Sidebar() {
           <Image src="https://rb.gy/i26zak" layout="fill" priority />
         </div>
         <Avatar
-            onClick={signOut}
+          onClick={signOut}
           // using optional chaining to aviod errors (when user is not auth'd it will give an error)
           src={session?.user?.image}
           className="!h-14 !w-14 !border-2 !absolute !top-4 !cursor-pointer"
