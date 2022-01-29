@@ -18,6 +18,7 @@ function Sidebar() {
         <Avatar
           onClick={signOut}
           // using optional chaining to aviod errors (when user is not auth'd it will give an error)
+          // fetching user data from session
           src={session?.user?.image}
           className="!h-14 !w-14 !border-2 !absolute !top-4 !cursor-pointer"
         />
