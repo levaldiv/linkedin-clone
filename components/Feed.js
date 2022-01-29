@@ -1,7 +1,10 @@
+import Input from "./Input";
+
 function Feed() {
   return (
     <div>
-      <h1>he</h1>
+      <Input />
+      {/* Posts */}
     </div>
   );
 }
