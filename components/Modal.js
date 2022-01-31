@@ -9,7 +9,7 @@ import { useRecoilValue } from "recoil";
 import { getPostState } from "../atoms/postAtom";
 import Post from "./Post";
 
-/********** Creating the animation **********/
+/********** Creating the animation when usr clicks on "start a post" **********/
 const dropIn = {
   hidden: {
     y: "-100vh",
@@ -53,14 +53,19 @@ const gifYouUp = {
     },
   },
 };
-/********************************************/
+/*****************************************************************************/
 
+/* Recieving 2 props
+ * handleClose will close the modal */
 const Modal = ({ handleClose, type }) => {
+  // getting back real time session
   const { data: session } = useSession();
   const post = useRecoilValue(getPostState);
 
   return (
+    // when you click outside of the modal, it will close it, instead of having to click the x btn instead
     <Backdrop onClick={handleClose}>
+      {/* this is the 1st modal */}
       {type === "dropIn" && (
         <motion.div
           onClick={(e) => e.stopPropagation()}
@@ -88,6 +93,8 @@ const Modal = ({ handleClose, type }) => {
         </motion.div>
       )}
 
+      {/* this is the 2nd modal
+       * This occurs when we actually click on the post*/}
       {type === "gifYouUp" && (
         <motion.div
           onClick={(e) => e.stopPropagation()}
