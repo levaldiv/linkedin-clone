@@ -96,7 +96,14 @@ const Modal = ({ handleClose, type }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
-        ></motion.div>
+        >
+          <motion.img
+            alt=""
+            onDoubleClick={handleClose}
+            src={post.photoUrl}
+            className="object-contain max-h-[80vh] w-full max-w-3xl rounded-l-lg"
+          />
+        </motion.div>
       )}
     </Backdrop>
   );
