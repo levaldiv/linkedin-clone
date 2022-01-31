@@ -103,8 +103,13 @@ const Modal = ({ handleClose, type }) => {
             src={post.photoUrl}
             className="object-contain max-h-[80vh] w-full max-w-3xl rounded-l-lg"
           />
+          <div className="w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg">
+            <Post post={post} modalPost />
+          </div>
         </motion.div>
       )}
     </Backdrop>
   );
 };
+
+export default Modal;
