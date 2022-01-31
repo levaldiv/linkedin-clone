@@ -87,6 +87,17 @@ const Modal = ({ handleClose, type }) => {
           </div>
         </motion.div>
       )}
+
+      {type === "gifYouUp" && (
+        <motion.div
+          onClick={(e) => e.stopPropagation()}
+          className="rounded-l-lg flex bg-[#1D2226] w-full max-w-6xl -mt-[7vh] mx-6"
+          variants={gifYouUp}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        ></motion.div>
+      )}
     </Backdrop>
   );
 };
