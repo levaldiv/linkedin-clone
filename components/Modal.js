@@ -69,7 +69,23 @@ const Modal = ({ handleClose, type }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
-        ></motion.div>
+        >
+          <div className="flex items-center justify-between border-b border-white/75 px-4 py-2.5">
+            <h4 className="text-xl">Create a post</h4>
+            <IconButton onClick={handleClose}>
+              <CloseRoundedIcon className="h-7 w-7 dark:text-white/75" />
+            </IconButton>
+          </div>
+
+          <div className="p-4 space-y-2">
+            <div className="flex items-center space-x-2">
+              <Avatar src={session?.user?.image} className="!h-11 !w-11" />
+              <h6>{session?.user?.name}</h6>
+            </div>
+
+            <Form />
+          </div>
+        </motion.div>
       )}
     </Backdrop>
   );
