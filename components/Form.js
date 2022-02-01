@@ -11,7 +11,10 @@ function Form() {
   //   console.log(input);
   const [photoUrl, setPhotoUrl] = useState("");
 
-  const uploadPost = () => {};
+  const uploadPost = async (e) => {
+    // this prevents the page from refreshing when a user posts somwthing
+    e.preventDefault();
+  };
 
   return (
     <form className="flex flex-col relative space-y-2 text-black/80 dark:text-white/75">
