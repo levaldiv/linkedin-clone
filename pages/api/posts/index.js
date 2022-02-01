@@ -21,11 +21,18 @@ export default async function handler(req, res) {
     try {
       /* fetching all our posts
        * Access the collection, create a collection called "posts"
-       * Insert one document (passing in body with spread operator to combine whatever the body contains)
+       * Insert one document with the following items (passing in body with spread operator to combine whatever the body contains)
        * Combine body + timestamp (not actually sending the timestamp so use new ts) */
       const post = await db
         .collection("posts")
+        // using this so i can get the posts in a particular order (desc order)
         .insertOne({ ...body, timestamp: new Timestamp() });
+
+        // status code
+        /* Returning the json of the post with a status */
+        res.status(201).json(post)
+
+        // However, if there is ANY sort of error, do the follownig
     } catch (error) {}
   }
 }
