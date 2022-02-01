@@ -2,6 +2,8 @@ import { AnimatePresence } from "framer-motion";
 import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { modalState, modalTypeState } from "../atoms/modalAtom";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
@@ -12,6 +14,11 @@ export default function Home() {
   // this React hook checks to see if someone is signed in
   // const { data: session } = useSession();
   // console.log(session);
+
+  // this opens the modal
+  const [modalOpen, setModalOpen] = useRecoilState(modalState);
+  const [modalType, setModalType] = useRecoilState(modalTypeState);
+
   /* This only happens when the user is not authenticated on the client side */
   const router = useRouter();
   const { status } = useSession({
@@ -39,9 +46,12 @@ export default function Home() {
           <Feed />
         </div>
         {/* Widgets */}
-        
+
         <AnimatePresence>
-          {/* Only want to show modal if modalOpen state is true */}
+          {/* Only want to show modal if modalOpen state is true
+           * handleClose sets the modalOpen to falsse 
+           * This here changes dynamically bc I am using modalOpen once but the type is only going to change 
+           * based on the users click */}
           {modalOpen && (
             <Modal handleClose={() => setModalOpen(false)} type={modalType} />
           )}
