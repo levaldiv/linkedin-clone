@@ -1,8 +1,8 @@
 function Form() {
   return (
-    <div>
-      <h1></h1>
-    </div>
+    <form>
+      <textarea rows="4" placeholder="What do you want to talk about?"></textarea>
+    </form>
   );
 }
 
