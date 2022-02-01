@@ -39,7 +39,9 @@ export default function Home() {
           <Feed />
         </div>
         {/* Widgets */}
+        
         <AnimatePresence>
+          {/* Only want to show modal if modalOpen state is true */}
           {modalOpen && (
             <Modal handleClose={() => setModalOpen(false)} type={modalType} />
           )}
