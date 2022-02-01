@@ -60,7 +60,7 @@ const gifYouUp = {
 const Modal = ({ handleClose, type }) => {
   // getting back real time session
   const { data: session } = useSession();
-  const post = useRecoilValue(getPostState);
+//   const post = useRecoilValue(getPostState);
 
   return (
     // when you click outside of the modal, it will close it, instead of having to click the x btn instead
