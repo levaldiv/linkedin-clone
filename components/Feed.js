@@ -43,15 +43,18 @@ function Feed({ posts }) {
     /* Only have a dependency if that dep changes then only its going to run the use effect again
      * handlePost changes ONLY IF handlePost becomes true or false, then itll run the useEffect */
   }, [handlePost]);
-  // console.log(realtimePosts);
+  console.log(realtimePosts);
 
   return (
     <div className="space-x-6 pb-24 max-w-lg">
       <Input />
       {/* Posts */}
+      {/* If not true */}
       {!useSSRPosts
-        ? realtimePosts.map((post) => <Post key={post._id} post={post} />)
-        : posts.map((post) => <Post key={post._id} post={post} />)}
+        ? // show real time post, map through every single post, return a single post componment
+          realtimePosts.map((post) => <Post key={post._id} post={post} />)
+        : // otherwise, make sur post state is true then only display ssr post
+          posts.map((post) => <Post key={post._id} post={post} />)}
     </div>
   );
 }
