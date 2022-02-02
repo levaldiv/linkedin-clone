@@ -42,6 +42,7 @@ function Feed() {
     /* Only have a dependency if that dep changes then only its going to run the use effect again
      * handlePost changes ONLY IF handlePost becomes true or false, then itll run the useEffect */
   }, [handlePost]);
+  // console.log(realtimePosts);
 
   return (
     <div className="space-x-6 pb-24 max-w-lg">
