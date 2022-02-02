@@ -29,6 +29,11 @@ function Feed() {
       /* set whatever I get back from the response data and set the realtimePost with that
       response data */
       setRealtimePosts(responseData);
+      /* When we are fetching stuff from the db, we dont want to show the server side rendered post
+       * instead, show the real time post instead (dont want to refresh the page over and over again)
+       * want to persist the state but also show real tempo so it updates in real tinme */
+      setHandlePost(false);
+      setUseSSRPosts(false);
     };
 
     // invoking the function
