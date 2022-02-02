@@ -1,4 +1,4 @@
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 // import { useRecoilState } from "recoil";
 // import { modalState } from "../atoms/modalAtom";
@@ -10,10 +10,28 @@ function Form() {
   const [input, setInput] = useState("");
   //   console.log(input);
   const [photoUrl, setPhotoUrl] = useState("");
+  const { data: session } = useSession();
 
   const uploadPost = async (e) => {
     // this prevents the page from refreshing when a user posts somwthing
     e.preventDefault();
+
+    const response = await fetch("/api/posts", {
+      // inserting into the db
+      method: "POST",
+      // contains input and photo url (basically contains all the post info)
+      // converting this into a string
+      body: JSON.stringify({
+        // name of field inside of db (text, input, ...)
+        input: input,
+        photoUrl: photoUrl,
+        username: session.user.name,
+        email: session.user.email,
+        userImg: session.user.image,
+        // when the post was created
+        createdAt: new Date().toString(),
+      }),
+    });
   };
 
   return (
