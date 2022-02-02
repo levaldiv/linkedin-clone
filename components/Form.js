@@ -16,6 +16,7 @@ function Form() {
     // this prevents the page from refreshing when a user posts somwthing
     e.preventDefault();
 
+    /********* Sending a request to the backend database *********/
     const response = await fetch("/api/posts", {
       // inserting into the db
       method: "POST",
@@ -31,8 +32,18 @@ function Form() {
         // when the post was created
         createdAt: new Date().toString(),
       }),
+      // obj to set req as headers(what format they should be)
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
+    const responseData = await response.json();
+
+    // After it does all that, set open model to false
+    setModalOpen(false);
   };
+  /************************************************************/
 
   return (
     <form className="flex flex-col relative space-y-2 text-black/80 dark:text-white/75">
