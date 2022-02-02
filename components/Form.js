@@ -42,6 +42,7 @@ function Form() {
     const responseData = await response.json();
     console.log(responseData);
 
+    // setHandlePost(true)
     // After it does all that, set open model to false
     setModalOpen(false);
   };
