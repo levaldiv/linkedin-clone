@@ -20,7 +20,12 @@ export default async function handler(req, res) {
         .find()
         .sort({ timestamp: -1 })
         .toArray();
-    } catch (error) {}
+
+      // status code
+      res.status(200).json(posts);
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 
   /* To send a post to the database, we would use a POST request
