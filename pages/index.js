@@ -8,6 +8,7 @@ import Feed from "../components/Feed";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import Sidebar from "../components/Sidebar";
+import { connectToDatabase } from "../util/mongodb";
 
 export default function Home() {
   // renaming data to session
@@ -49,8 +50,8 @@ export default function Home() {
 
         <AnimatePresence>
           {/* Only want to show modal if modalOpen state is true
-           * handleClose sets the modalOpen to falsse 
-           * This here changes dynamically bc I am using modalOpen once but the type is only going to change 
+           * handleClose sets the modalOpen to falsse
+           * This here changes dynamically bc I am using modalOpen once but the type is only going to change
            * based on the users click */}
           {modalOpen && (
             <Modal handleClose={() => setModalOpen(false)} type={modalType} />
@@ -73,6 +74,20 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
+  // Get posts on ssr
+  // get back our db instancec
+  const { db } = await connectToDatabase();
+  // retreiving all the posts
+  const posts = await db
+    // getting into posts
+    .collection("posts")
+    .find()
+    // get latest post first
+    .sort({ timestamp: -1 })
+    .toArray();
+
+    // Get Google News API to fetch 
 
   // otherwise
   return {
