@@ -11,13 +11,13 @@ let cachedDb = null;
 /**** These are to protect ourselves, if there is no  uri send an error ****/
 if (!uri) {
   throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env local"
+    "Please define the MONGODB_URI environment variable inside .env.local"
   );
 }
 
 if (!dbName) {
   throw new Error(
-    "Please define the MONGODB_DB environment variable inside .env local"
+    "Please define the MONGODB_DB environment variable inside .env.local"
   );
 }
 /**************************************************************************/
