@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 
 function Feed() {
+  const [realtimePosts, setRealtimePosts] = useState([]);
+
   // fetching posts from database
   useEffect(() => {
-    const fetchPost = async () => {
+    const fetchPosts = async () => {
       // send our options
       const response = await fetch("/api/posts/", {
         // retrieve back the posts
@@ -18,7 +20,13 @@ function Feed() {
        * response back to the client from the backend)
        * */
       const responseData = await response.json();
+      /* set whatever I get back from the response data and set the realtimePost with that
+      response data */
+      setRealtimePosts(responseData);
     };
+
+    // invoking the function
+    fetchPosts();
   }, []);
 
   return (
