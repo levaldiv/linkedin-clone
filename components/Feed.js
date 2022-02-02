@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import Input from "./Input";
 import { handlePostState, useSSRPostsState } from "../atoms/postAtom";
+import Post from "./Post";
 
-function Feed() {
+function Feed({ posts }) {
   const [realtimePosts, setRealtimePosts] = useState([]);
   // Want thess as a global state to be stored asd global state so i cn have access to these vars
   const [handlePost, setHandlePost] = useRecoilState(handlePostState);
   // Use Server Side Rendered (SSR)
-  const [useSSRPost, setUseSSRPosts] = useRecoilState(useSSRPostsState);
+  const [useSSRPosts, setUseSSRPosts] = useRecoilState(useSSRPostsState);
 
   // fetching posts from database
   useEffect(() => {
@@ -48,6 +49,9 @@ function Feed() {
     <div className="space-x-6 pb-24 max-w-lg">
       <Input />
       {/* Posts */}
+      {!useSSRPosts
+        ? realtimePosts.map((post) => <Post key={post._id} post={post} />)
+        : posts.map((post) => <Post key={post._id} post={post} />)}
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Modal from "../components/Modal";
 import Sidebar from "../components/Sidebar";
 import { connectToDatabase } from "../util/mongodb";
 
-export default function Home() {
+export default function Home({ posts }) {
   // renaming data to session
   // this React hook checks to see if someone is signed in
   // const { data: session } = useSession();
@@ -44,7 +44,7 @@ export default function Home() {
           {/* Sidebar */}
           <Sidebar />
           {/* Feed */}
-          <Feed />
+          <Feed posts={posts} />
         </div>
         {/* Widgets */}
 
