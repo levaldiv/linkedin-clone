@@ -12,11 +12,19 @@ export default async function handler(req, res) {
   if (method === "GET") {
     try {
       //   fetching all our posts
-      const posts = await db.collection;
+      /* go inside of the collection called "posts", find all the posts,
+       * sort those posts in a desc way and convert them to an array (which will
+       * return the whole array of posts) */
+      const posts = await db
+        .collection("posts")
+        .find()
+        .sort({ timestamp: -1 })
+        .toArray();
     } catch (error) {}
   }
 
-  //   To send a post to the database, we would use a POST request
+  /* To send a post to the database, we would use a POST request
+   * This fcn will store the post inside of the database */
   if (method === "POST") {
     try {
       /* fetching all our posts
