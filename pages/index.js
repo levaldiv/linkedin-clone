@@ -87,12 +87,23 @@ export async function getServerSideProps(context) {
     .sort({ timestamp: -1 })
     .toArray();
 
-    // Get Google News API to fetch 
+  // Get Google News API to fetch
 
   // otherwise
   return {
     props: {
       session,
+      // mapping through post and for every post, return a new object for every post
+      posts: posts.map((post) => ({
+        // all the info i want to retreive back from the posts
+        _id: post._id.toString(),
+        input: post.input,
+        photoUrl: post.photoUrl,
+        username: post.username,
+        email: post.email,
+        userImg: post.userImg,
+        createdAt: post.createdAt,
+      })),
     },
   };
 }
