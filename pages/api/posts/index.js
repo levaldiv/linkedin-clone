@@ -28,11 +28,13 @@ export default async function handler(req, res) {
         // using this so i can get the posts in a particular order (desc order)
         .insertOne({ ...body, timestamp: new Timestamp() });
 
-        // status code
-        /* Returning the json of the post with a status */
-        res.status(201).json(post)
+      // status code
+      /* Returning the json of the post with a status */
+      res.status(201).json(post);
 
-        // However, if there is ANY sort of error, do the follownig
-    } catch (error) {}
+      // However, if there is ANY sort of error, do the follownig
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 }
