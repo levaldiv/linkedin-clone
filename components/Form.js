@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-// import { useRecoilState } from "recoil";
-// import { modalState } from "../atoms/modalAtom";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
 // import { handlePostState } from "../atoms/postAtom";
 
 function Form() {
@@ -10,6 +10,7 @@ function Form() {
   const [input, setInput] = useState("");
   //   console.log(input);
   const [photoUrl, setPhotoUrl] = useState("");
+  const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const { data: session } = useSession();
 
   const uploadPost = async (e) => {
@@ -39,6 +40,7 @@ function Form() {
     });
 
     const responseData = await response.json();
+    console.log(responseData);
 
     // After it does all that, set open model to false
     setModalOpen(false);
