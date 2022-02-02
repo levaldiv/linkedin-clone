@@ -1,5 +1,5 @@
 import { Timestamp } from "mongodb";
-import { connectToDatabase } from "../../../lib/mongodb";
+import { connectToDatabase } from "../../../util/mongodb";
 
 export default async function handler(req, res) {
   // destructuring my request and accessing method/body from the request
