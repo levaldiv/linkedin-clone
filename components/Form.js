@@ -11,6 +11,7 @@ function Form() {
   //   console.log(input);
   const [photoUrl, setPhotoUrl] = useState("");
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
+  const [handlePost, setHandlePost] = useRecoilState(handlePostState);
   const { data: session } = useSession();
 
   const uploadPost = async (e) => {
@@ -42,7 +43,9 @@ function Form() {
     const responseData = await response.json();
     console.log(responseData);
 
-    // setHandlePost(true)
+    /* When im posting the post into the db, I want to refetch the info so it fetches in real
+     * time which will show the updated post wihtout refreshing the page */
+    setHandlePost(true);
     // After it does all that, set open model to false
     setModalOpen(false);
   };
