@@ -1,4 +1,5 @@
 import { Avatar } from "@mui/material";
+import TimeAgo from "timeago-react";
 
 function Post({ post, modalPost }) {
   return (
@@ -13,6 +14,11 @@ function Post({ post, modalPost }) {
           <h6 className="font-medium hover:text-blue-500 hover:underline">
             {post.username}
           </h6>
+          <p className="text-sm dark:text-white/75 opacity-80">{post.email}</p>
+          <TimeAgo
+            date={post.createdAt}
+            className="text-xs dark:text-white/75 opacity-80"
+          />
         </div>
       </div>
     </div>
