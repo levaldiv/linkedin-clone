@@ -1,4 +1,8 @@
+import { useSession } from "next-auth/react";
+
 function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
+  const { data: session } = useSession();
+
   return (
     <div
       // only on medium screens , i want it to be inline flex and hide certain icons
@@ -11,7 +15,11 @@ function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
         // if active is true, i want to change colors (using ! to override original text)
       } ${active && "!text-black dark:!text-white"}`}
     >
-      {avatar ? <Icon className="!h-7 !w-7 lg:!-mb-1" /> : <Icon />}
+      {avatar ? (
+        <Icon className="!h-7 !w-7 lg:!-mb-1" src={session?.user?.image} />
+      ) : (
+        <Icon />
+      )}
       <h4
         className={`text-sm ${
           // if feed is true, text is hidden on smaller devices
