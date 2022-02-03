@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modalAtom";
-// import { handlePostState } from "../atoms/postAtom";
+import { handlePostState } from "../atoms/postAtom";
 
 function Form() {
   /* setting whatever the user is typing to the state to store what they are typing
