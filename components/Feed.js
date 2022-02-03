@@ -46,7 +46,7 @@ function Feed({ posts }) {
   console.log(realtimePosts);
 
   return (
-    <div className="space-x-6 pb-24 max-w-lg">
+    <div className="space-y-6 pb-24 max-w-lg">
       <Input />
       {/* Posts */}
       {/* If not true */}
