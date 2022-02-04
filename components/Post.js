@@ -11,20 +11,25 @@ import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
 import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import { modalState, modalTypeState } from "../atoms/modalAtom";
 // import TimeAgo from "timeago-react";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 function Post({ post, modalPost }) {
+  const { data: session } = useSession();
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [modalType, setModalType] = useRecoilState(modalTypeState);
   const [postState, setPostState] = useRecoilState(getPostState);
   const [showInput, setShowInput] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [handlePost, setHandlePost] = useRecoilState(handlePostState);
 
   // creating the truncate function
   // accepting a string (which is the text) & a number
   const truncate = (string, n) =>
     // checking if the strings length is greater than the number, then only it will truncate
     string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
+
+  // creating the delete function
+  const deletePost = () => {};
 
   return (
     <div
@@ -103,8 +108,25 @@ function Post({ post, modalPost }) {
             ) : (
               <ThumbUpOffAltOutlinedIcon className="-scale-x-100" />
             )}
-
             <h4>Like</h4>
+          </button>
+        )}
+
+        {/* This makes sure that the delete btn doesnt show up for users who dont own a post */}
+        {session?.user?.email === post.email ? (
+          // if logged in users email is the same as the post they want to delete, show this btn
+          <button
+            className="postButton focus:text-red-400"
+            onClick={deletePost}
+          >
+            <DeleteRoundedIcon />
+            <h4>Delete post</h4>
+          </button>
+        ) : (
+          // Otherwise show the share btn
+          <button className="postButton ">
+            <ReplyRoundedIcon className="-scale-x-100" />
+            <h4>Share</h4>
           </button>
         )}
       </div>
