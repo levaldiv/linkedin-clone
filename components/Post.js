@@ -91,7 +91,7 @@ function Post({ post, modalPost }) {
         />
       )}
 
-      <div>
+      <div className="flex justify-evenly items-center dark:border-t border-gray-600/80 mx-2.5 pt-2 text-black/60 dark:text-white/75">
         {modalPost ? (
           <button className="postButton">
             <CommentOutlinedIcon />
