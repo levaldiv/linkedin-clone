@@ -4,7 +4,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 // import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
 // import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 import { useRecoilState } from "recoil";
-// import { handlePostState, getPostState } from "../atoms/postAtom";
+import { handlePostState, getPostState } from "../atoms/postAtom";
 import { useState } from "react";
 // import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 // import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
@@ -15,6 +15,8 @@ import { modalState, modalTypeState } from "../atoms/modalAtom";
 
 function Post({ post, modalPost }) {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
+  const [modalType, setModalType] = useRecoilState(modalTypeState);
+  const [postState, setPostState] = useRecoilState(getPostState);
   const [showInput, setShowInput] = useState(false);
 
   // creating the truncate function
@@ -67,6 +69,20 @@ function Post({ post, modalPost }) {
             </p>
           )}
         </div>
+      )}
+
+      {/* This will check to see if the post has any sort of image */}
+      {post.photoUrl && !modalPost && (
+        <img
+          src={post.photoUrl}
+          alt=""
+          className="w-full cursor-pointer"
+          onClick={() => {
+            setModalOpen(true);
+            setModalType("gifYouUp");
+            setPostState(post);
+          }}
+        />
       )}
     </div>
   );
