@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { Avatar } from "@mui/material";
 import Form from "./Form";
 import { useRecoilValue } from "recoil";
-// import { getPostState } from "../atoms/postAtom";
+import { getPostState } from "../atoms/postAtom";
 import Post from "./Post";
 
 /********** Creating the animation when usr clicks on "start a post" **********/
@@ -60,7 +60,8 @@ const gifYouUp = {
 const Modal = ({ handleClose, type }) => {
   // getting back real time session
   const { data: session } = useSession();
-//   const post = useRecoilValue(getPostState);
+  // Since I am storing the posts inside recoil, this will only return the value
+  const post = useRecoilValue(getPostState);
 
   return (
     // when you click outside of the modal, it will close it, instead of having to click the x btn instead
