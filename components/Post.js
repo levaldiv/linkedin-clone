@@ -18,7 +18,9 @@ function Post({ post, modalPost }) {
   const [showInput, setShowInput] = useState(false);
 
   // creating the truncate function
+  // accepting a string (which is the text) & a number
   const truncate = (string, n) =>
+    // checking if the strings length is greater than the number, then only it will truncate
     string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
 
   return (
@@ -57,9 +59,9 @@ function Post({ post, modalPost }) {
         <div className="px-2.5 break-all md:break-normal">
           {/* showInput caps the text to a certain point and will have a see more to see the whole text */}
           {modalPost || showInput ? (
-            <p>{post.input}</p>
+            <p onClick={() => setShowInput(false)}>{post.input}</p>
           ) : (
-            <p>
+            <p onClick={() => setShowInput(true)}>
               {/* accepts 2 params, the input text & how many chars i wanna truncate */}
               {truncate(post.input, 150)}
             </p>
