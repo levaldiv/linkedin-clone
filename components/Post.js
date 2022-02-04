@@ -1,14 +1,14 @@
 import { Avatar, IconButton } from "@mui/material";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-// import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
-// import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
+import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
+import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 import { useRecoilState } from "recoil";
 import { handlePostState, getPostState } from "../atoms/postAtom";
 import { useState } from "react";
-// import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
-// import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
-// import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
+import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import { modalState, modalTypeState } from "../atoms/modalAtom";
 // import TimeAgo from "timeago-react";
 // import { useSession } from "next-auth/react";
@@ -18,6 +18,7 @@ function Post({ post, modalPost }) {
   const [modalType, setModalType] = useRecoilState(modalTypeState);
   const [postState, setPostState] = useRecoilState(getPostState);
   const [showInput, setShowInput] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   // creating the truncate function
   // accepting a string (which is the text) & a number
@@ -84,6 +85,29 @@ function Post({ post, modalPost }) {
           }}
         />
       )}
+
+      <div>
+        {modalPost ? (
+          <button className="postButton">
+            <CommentOutlinedIcon />
+            <h4>Comment</h4>
+          </button>
+        ) : (
+          <button
+            className={`postButton ${liked && "text-blue-500"}`}
+            onClick={() => setLiked(!liked)}
+          >
+            {/* if our liked is true (if the user clickes on the like btn) */}
+            {liked ? (
+              <ThumbUpOffAltRoundedIcon className="-scale-x-100" />
+            ) : (
+              <ThumbUpOffAltOutlinedIcon className="-scale-x-100" />
+            )}
+
+            <h4>Like</h4>
+          </button>
+        )}
+      </div>
     </div>
   );
 }
