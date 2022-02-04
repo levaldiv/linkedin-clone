@@ -1,5 +1,17 @@
-import { Avatar } from "@mui/material";
-import TimeAgo from "timeago-react";
+import { Avatar, IconButton } from "@mui/material";
+import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+// import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
+// import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
+// import { useRecoilState } from "recoil";
+// import { handlePostState, getPostState } from "../atoms/postAtom";
+// import { useState } from "react";
+// import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+// import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
+// import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
+// import { modalState, modalTypeState } from "../atoms/modalAtom";
+// import TimeAgo from "timeago-react";
+// import { useSession } from "next-auth/react";
 
 function Post({ post, modalPost }) {
   return (
@@ -15,11 +27,22 @@ function Post({ post, modalPost }) {
             {post.username}
           </h6>
           <p className="text-sm dark:text-white/75 opacity-80">{post.email}</p>
-          <TimeAgo
+          {/* <TimeAgo
             date={post.createdAt}
             className="text-xs dark:text-white/75 opacity-80"
-          />
+          /> */}
         </div>
+
+        {modalPost ? (
+          // Show this if its a modal post
+          <IconButton onClick={() => setModalOpen(false)}>
+            <CloseRoundedIcon className="dark:text-white/75 h-7 w-7" />
+          </IconButton>
+        ) : (
+          <IconButton>
+            <MoreHorizRoundedIcon className="dark:text-white/75 h-7 w-7" />
+          </IconButton>
+        )}
       </div>
     </div>
   );
