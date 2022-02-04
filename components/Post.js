@@ -5,7 +5,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 // import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 import { useRecoilState } from "recoil";
 // import { handlePostState, getPostState } from "../atoms/postAtom";
-// import { useState } from "react";
+import { useState } from "react";
 // import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 // import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
 // import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
@@ -15,6 +15,11 @@ import { modalState, modalTypeState } from "../atoms/modalAtom";
 
 function Post({ post, modalPost }) {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
+  const [showInput, setShowInput] = useState(false);
+
+  // creating the truncate function
+  const truncate = (string, n) =>
+    string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
 
   return (
     <div
@@ -47,7 +52,20 @@ function Post({ post, modalPost }) {
         )}
       </div>
 
-      
+      {/* This will check to see if the post has any sort of input (text) */}
+      {post.input && (
+        <div className="px-2.5 break-all md:break-normal">
+          {/* showInput caps the text to a certain point and will have a see more to see the whole text */}
+          {modalPost || showInput ? (
+            <p>{post.input}</p>
+          ) : (
+            <p>
+              {/* accepts 2 params, the input text & how many chars i wanna truncate */}
+              {truncate(post.input, 150)}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
