@@ -29,7 +29,17 @@ function Post({ post, modalPost }) {
     string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
 
   // creating the delete function
-  const deletePost = () => {};
+  const deletePost = async () => {
+    const response = await fetch(`/api/posts/${post._id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    // fetch it in real time
+    setHandlePost(true);
+    // modal close when user deltes it from the modal
+    setModalOpen(false);
+  };
 
   return (
     <div
