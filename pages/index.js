@@ -11,7 +11,8 @@ import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 import { connectToDatabase } from "../util/mongodb";
 
-export default function Home({ posts }) {
+export default function Home({ posts, articles }) {
+  console.log(articles);
   // renaming data to session
   // this React hook checks to see if someone is signed in
   // const { data: session } = useSession();
@@ -48,7 +49,7 @@ export default function Home({ posts }) {
           <Feed posts={posts} />
         </div>
         {/* Widgets */}
-        <Widgets />
+        <Widgets articles={articles} />
 
         <AnimatePresence>
           {/* Only want to show modal if modalOpen state is true
@@ -90,11 +91,17 @@ export async function getServerSideProps(context) {
     .toArray();
 
   // Get Google News API to fetch
+  // Fetching articles and call them "results"
+  const results = await fetch(
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`
+    // return a promise , get back the response, and return the response as json
+  ).then((res) => res.json());
 
   // otherwise
   return {
     props: {
       session,
+      articles: results.articles,
       // mapping through post and for every post, return a new object for every post
       posts: posts.map((post) => ({
         // all the info i want to retreive back from the posts
