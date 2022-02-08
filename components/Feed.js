@@ -15,7 +15,7 @@ function Feed({ posts }) {
   useEffect(() => {
     const fetchPosts = async () => {
       // send our options
-      const response = await fetch("/api/posts/", {
+      const response = await fetch("/api/posts", {
         // retrieve back the posts
         method: "GET",
         // retrieve the posts in json format
@@ -43,7 +43,7 @@ function Feed({ posts }) {
     /* Only have a dependency if that dep changes then only its going to run the use effect again
      * handlePost changes ONLY IF handlePost becomes true or false, then itll run the useEffect */
   }, [handlePost]);
-  console.log(realtimePosts);
+  // console.log(realtimePosts);
 
   return (
     <div className="space-y-6 pb-24 max-w-lg">
@@ -51,10 +51,10 @@ function Feed({ posts }) {
       {/* Posts */}
       {/* If not true */}
       {!useSSRPosts
-        ? // show real time post, map through every single post, return a single post componment
-          realtimePosts.map((post) => <Post key={post._id} post={post} />)
-        : // otherwise, make sur post state is true then only display ssr post
-          posts.map((post) => <Post key={post._id} post={post} />)}
+        // show real time post, map through every single post, return a single post componment
+        ? realtimePosts.map((post) => <Post key={post._id} post={post} />)
+        // otherwise, make sur post state is true then only display ssr post
+        : posts.map((post) => <Post key={post._id} post={post} />)}
     </div>
   );
 }
