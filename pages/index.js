@@ -12,7 +12,7 @@ import Widgets from "../components/Widgets";
 import { connectToDatabase } from "../util/mongodb";
 
 export default function Home({ posts, articles }) {
-  console.log(articles);
+  // console.log(articles);
   // renaming data to session
   // this React hook checks to see if someone is signed in
   // const { data: session } = useSession();
@@ -38,6 +38,7 @@ export default function Home({ posts, articles }) {
         <title>Feed | LinkedIn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <Header />
 
       {/* Only use space when using in one direction, gap for horizontal and vertical */}
