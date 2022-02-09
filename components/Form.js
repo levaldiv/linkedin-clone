@@ -32,7 +32,7 @@ function Form() {
         email: session.user.email,
         userImg: session.user.image,
         // when the post was created
-        createdAt: new Date().toString(),
+        createdAt: new Date(),
       }),
       // obj to set req as headers(what format they should be)
       headers: {
