@@ -9,6 +9,11 @@
 }
 
 @layer components {
+  /******** BACKDROP COMPONENT ********/
+  .backDrop {
+    @apply absolute top-0 left-0 h-full w-full overflow-y-scroll bg-black/70 flex items-center justify-center z-50;
+  }
+
   /******** HOME COMPONENT ********/
   .intent {
     @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-md mx-auto xl:mx-0;
