@@ -31,3 +31,4 @@ What you can do:
 9. [mongodb](https://www.mongodb.com/)
 10. [next-themes](https://github.com/pacocoursey/next-themes)
 11. [timeago-react](https://github.com/hustcc/timeago-react)
+12. [google news api](https://newsapi.org/s/google-news-api)
