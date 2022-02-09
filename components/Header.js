@@ -32,12 +32,9 @@ function Header() {
   console.log("Current theme is", theme);
 
   return (
-    /* when working with position fixed/sticky on headers, need to specify top val
-     * z index ensures that the header stays ontop
-     * focus within focuses on input fields that are inside the header */
-    <header className="sticky top-0 z-40 bg-white dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg">
-      {/* Left */}
+    <header className="mainHeader">
       <div className="flex items-center space-x-2 w-full max-w-xs">
+        {/* This changes the logo to dark or light depending on the mode */}
         {mounted && (
           <>
             {resolvedTheme === "dark" ? (
@@ -54,8 +51,7 @@ function Header() {
           <input
             type="text"
             placeholder="Search"
-            // hidden on phones, outline removes the outline around the box when selected
-            className="hidden md:inline-flex bg-transparent text-sm focus:outline-none placeholder-black/70 dark:placeholder-white/75 flex-grow-1"
+            className="navBarSearchInput"
           />
         </div>
       </div>
@@ -70,8 +66,8 @@ function Header() {
         <HeaderLink Icon={Avatar} text="Me" feed avatar hidden />
         <HeaderLink Icon={AppsOutlinedIcon} text="Work" feed hidden />
 
-        {/* Dark mode toggle
-         *flex shrink prevents the togle from shrinking when re sizing the windows
+        {/* DARK MODE TOGGLE
+         * flex shrink prevents the togle from shrinking when re sizing the windows
          * This will only show IF  mounted is true*/}
         {mounted && (
           <div

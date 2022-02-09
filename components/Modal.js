@@ -76,6 +76,7 @@ const Modal = ({ handleClose, type }) => {
           animate="visible"
           exit="exit"
         >
+          
           <div className="flex items-center justify-between border-b border-white/75 px-4 py-2.5">
             <h4 className="text-xl">Create a post</h4>
             <IconButton onClick={handleClose}>
@@ -105,12 +106,14 @@ const Modal = ({ handleClose, type }) => {
           animate="visible"
           exit="exit"
         >
+          
           <motion.img
             alt=""
             onDoubleClick={handleClose}
             src={post.photoUrl}
             className="object-contain max-h-[80vh] w-full max-w-3xl rounded-l-lg"
           />
+          
           <div className="w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg">
             <Post post={post} modalPost />
           </div>

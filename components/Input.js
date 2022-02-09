@@ -14,14 +14,15 @@ function Input() {
   const [modalType, setModalType] = useRecoilState(modalTypeState);
 
   return (
-    <div className="bg-white dark:bg-[#1D2226] rounded-lg p-3 space-y-3 border border-gray-300 dark:border-none">
+    <div className="mainInputContainer">
+      
       <div className="flex items-center space-x-2">
         <Avatar
           src={session?.user?.image}
           className="!h-10 !w-10 cursor-pointer"
         />
 
-        {/* adding animation */}
+        {/* adding animation when "sart a post" is clicked*/}
         <motion.button
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}

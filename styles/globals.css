@@ -14,12 +14,38 @@
     @apply absolute top-0 left-0 h-full w-full overflow-y-scroll bg-black/70 flex items-center justify-center z-50;
   }
 
-  /******** HOME COMPONENT ********/
-  .intent {
-    @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-md mx-auto xl:mx-0;
+  /******** FORM COMPONENT ********/
+  .photoInputUrl {
+    @apply bg-transparent focus:outline-none truncate max-w-xs md:max-w-sm dark:placeholder-white/75;
   }
 
-  /******** Sidebar COMPONENT ********/
+  .submitPostBtn {
+    @apply absolute bottom-0 right-0 font-medium bg-blue-400 hover:bg-blue-500 disabled:text-black/40 disabled:bg-white/75 disabled:cursor-not-allowed text-white rounded-full px-3.5 py-1;
+  }
+
+  /******** HEADER COMPONENT ********/
+  /* when working with position fixed/sticky on headers, need to specify top val z index ensures that the header stays ontop
+   * focus-within focuses on input fields that are inside the header */
+  .mainHeader {
+    @apply sticky top-0 z-40 bg-white dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg;
+  }
+
+  /* hidden on phones, outline removes the outline around the box when selected */
+  .navBarSearchInput {
+    @apply hidden md:inline-flex bg-transparent text-sm focus:outline-none placeholder-black/70 dark:placeholder-white/75 flex-grow;
+  }
+
+  /******** INPUT COMPONENT ********/
+  .mainInputContainer {
+    @apply bg-white dark:bg-[#1D2226] rounded-lg p-3 space-y-3 border border-gray-300 dark:border-none;
+  }
+
+  /******** POST COMPONENT ********/
+  .postButton {
+    @apply flex items-center justify-center space-x-2 cursor-pointer hover:bg-black/10 dark:hover:bg-black/20 w-full py-2.5 rounded transition ease-out font-medium;
+  }
+
+  /******** SIDEBAR COMPONENT ********/
   .sidebarButton {
     @apply dark:border-t border-gray-600 py-3 px-4 cursor-pointer opacity-80 hover:opacity-100;
   }
@@ -32,8 +58,25 @@
     @apply flex items-center space-x-2 font-medium cursor-pointer text-sm;
   }
 
-  /******** Post COMPONENT ********/
-  .postButton {
-    @apply flex items-center justify-center space-x-2 cursor-pointer hover:bg-black/10 dark:hover:bg-black/20 w-full py-2.5 rounded transition ease-out font-medium;
+  .aboutMeContainer {
+    @apply bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none;
+  }
+
+  .discoverMore {
+    @apply hidden md:flex bg-white dark:bg-[#1D2226] text-black/70 dark:text-white/75 rounded-lg overflow-hidden flex-col space-y-2 pt-2.5 sticky top-20 border border-gray-300 dark:border-none;
+  }
+
+  /******** WIDGETS COMPONENT ********/
+  .newsContainer {
+    @apply bg-white dark:bg-[#1D2226] py-2.5 rounded-lg space-y-2 w-11/12 overflow-hidden border border-gray-300 dark:border-none;
+  }
+  
+  .adsContainer {
+    @apply bg-white dark:bg-[#1D2226] w-11/12 h-64 px-2.5 rounded-lg sticky top-20 border border-gray-300 dark:border-none;
+  }
+
+  /******** HOME COMPONENT ********/
+  .intent {
+    @apply flex justify-between items-center hover:shadow-xl p-4 cursor-pointer rounded-lg text-black bg-white max-w-md mx-auto xl:mx-0;
   }
 }

@@ -16,11 +16,13 @@ function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
       } ${active && "!text-black dark:!text-white"}`}
       onClick={() => avatar && signOut()}
     >
+      
       {avatar ? (
         <Icon className="!h-7 !w-7 lg:!-mb-1" src={session?.user?.image} />
       ) : (
         <Icon />
       )}
+      
       <h4
         className={`text-sm ${
           // if feed is true, text is hidden on smaller devices

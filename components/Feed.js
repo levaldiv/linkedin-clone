@@ -24,8 +24,7 @@ function Feed({ posts }) {
 
       /* Recieve back the data
        * Sending a response back from the backend (sneding a
-       * response back to the client from the backend)
-       * */
+       * response back to the client from the backend) */
       const responseData = await response.json();
       /* set whatever I get back from the response data and set the realtimePost with that
       response data */

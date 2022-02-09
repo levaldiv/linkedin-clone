@@ -11,10 +11,11 @@ function Sidebar() {
     // prevents the sidebar from shrinking
     <div className="space-y-2 min-w-max max-w-lg">
       {/* About you (left side) */}
-      <div className="bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center text-center border border-gray-300 dark:border-none">
+      <div className="aboutMeContainer">
         <div className="relative w-full h-14">
           <Image src="https://rb.gy/i26zak" layout="fill" priority />
         </div>
+        
         <Avatar
           onClick={signOut}
           // using optional chaining to aviod errors (when user is not auth'd it will give an error)
@@ -22,6 +23,7 @@ function Sidebar() {
           src={session?.user?.image}
           className="!h-14 !w-14 !border-2 !absolute !top-4 !cursor-pointer"
         />
+        
         <div className="mt-5 py-4 space-x-0.5">
           <h4 className="hover:underline decoration-purple-700 underline-offset-1 cursor-pointer">
             {session?.user?.name}
@@ -62,8 +64,8 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="hidden md:flex bg-white dark:bg-[#1D2226] text-black/70 dark:text-white/75 rounded-lg overflow-hidden flex-col space-y-2 pt-2.5 sticky top-20 border border-gray-300 dark:border-none">
+      {/* Bottom group */}
+      <div className="discoverMore">
         <p className="sidebarLink">Groups</p>
 
         <div className="flex items-center justify-between">
